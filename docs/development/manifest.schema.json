@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PulsyAgentManifest",
+  "description": "Machine-readable handoff manifest for Pulsy agents",
+  "type": "object",
+  "required": [
+    "agentId",
+    "scope",
+    "version",
+    "ownedPaths",
+    "createdFiles",
+    "modifiedFiles",
+    "deletedFiles",
+    "actions",
+    "contractsConsumed",
+    "routes",
+    "handoffStatus"
+  ],
+  "properties": {
+    "agentId": {
+      "type": "string",
+      "description": "Identifier of the agent (e.g. HOME_AGENT, PLAYER_AGENT)"
+    },
+    "scope": {
+      "type": "string",
+      "description": "High-level domain or surface name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the handoff format, e.g. 1.0.0"
+    },
+    "ownedPaths": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Glob patterns or folder paths strictly owned by this agent"
+    },
+    "createdFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "modifiedFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "deletedFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "actions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Canonical Action IDs implemented (e.g. media.pop, social.pump)"
+    },
+    "contractsConsumed": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Models imported from contracts/ (e.g. Media, Device, Playlist)"
+    },
+    "contractsCreated": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "New contracts proposed or created"
+    },
+    "eventsConsumed": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "eventsProduced": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "permissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "routes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Navigation route IDs owned by this page"
+    },
+    "apiDependencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "runtimeDependencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "mediaDependencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "featureFlags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tests": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "knownConflicts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "handoffStatus": {
+      "type": "string",
+      "enum": ["IN_PROGRESS", "READY_FOR_INTEGRATION", "BLOCKED", "DEPRECATED"]
+    }
+  }
+}

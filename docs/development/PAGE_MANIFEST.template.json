@@ -1,0 +1,47 @@
+{
+  "$schema": "../../docs/development/manifest.schema.json",
+  "agentId": "EXAMPLE_PAGE_AGENT",
+  "scope": "pages/example",
+  "version": "1.0.0",
+  "ownedPaths": [
+    "pages/example/**"
+  ],
+  "createdFiles": [
+    "pages/example/ExampleScreen.kt",
+    "pages/example/ExampleViewModel.kt"
+  ],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "actions": [
+    "media.pop",
+    "media.puls"
+  ],
+  "contractsConsumed": [
+    "Media",
+    "PlaybackSession"
+  ],
+  "contractsCreated": [],
+  "eventsConsumed": [
+    "playback.position_changed"
+  ],
+  "eventsProduced": [],
+  "permissions": [],
+  "routes": [
+    "route_example"
+  ],
+  "apiDependencies": [
+    "runtime.getRecommendedMedia"
+  ],
+  "runtimeDependencies": [
+    "PulsyRuntime"
+  ],
+  "mediaDependencies": [
+    "video/mp4"
+  ],
+  "featureFlags": [],
+  "tests": [
+    "testExampleScreenRenders"
+  ],
+  "knownConflicts": [],
+  "handoffStatus": "READY_FOR_INTEGRATION"
+}
