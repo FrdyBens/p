@@ -1,0 +1,5 @@
+export enum ServerType {
+  PERSONAL_NAS = "PERSONAL_NAS",
+  COMMUNITY = "COMMUNITY",
+  CLOUD_RELAY = "CLOUD_RELAY",
+}

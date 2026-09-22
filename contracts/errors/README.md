@@ -1,24 +1,12 @@
-# Canonical Error Codes (`contracts/errors/`)
+# Canonical Errors (`contracts/errors/`)
 
-Standard error envelope:
-```json
-{
-  "code": "ERROR_CODE",
-  "message": "Human readable message",
-  "domain": "MEDIA|AUTH|PLAYBACK|DEVICE|SYSTEM",
-  "retryable": true,
-  "details": {}
-}
-```
+Standard error formats and machine-readable error codes.
 
-Standard codes:
-- `UNAUTHENTICATED`
-- `PERMISSION_DENIED`
-- `NOT_FOUND`
-- `MEDIA_UNAVAILABLE`
-- `SOURCE_OFFLINE`
-- `PLAYBACK_DECODE_ERR`
-- `DEVICE_UNREACHABLE`
-- `RATE_LIMITED`
-- `CONFLICT`
-- `INTERNAL_ERROR`
+## Structure
+- `ErrorCode.kt` / `ErrorCode.ts`: Finite, actionable error classification enum.
+- `PulsyError.kt` / `PulsyError.ts`: Uniform error envelope returned across all services, runtimes, and client boundaries.
+
+## Rules
+1. Never return unstructured string error messages directly to the UI.
+2. The UI handles errors based on the deterministic `code` and `retryable` properties.
+3. Secret connection strings, internal server traces, or database credentials must NEVER be placed in `message` or `details`.
